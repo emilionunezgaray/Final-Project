@@ -7,16 +7,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="movie-container">
-        <div class="movie-card">
-            <h3>Back To The Future</h3>
-            <img src="https://tse2.mm.bing.net/th?id=OIP.MeklphvvlT26Eb0ZUn2gSAHaJ4&pid=Api&P=0&h=220" alt="Movie Poster">
-            <p>Marty McFly, a typical American teenager of the Eighties, 
-                is accidentally sent back to 1955 in a plutonium-powered DeLorean time machine 
-                invented by a slightly mad scientist. During his often hysterical, always amazing trip back in time, 
-                Marty must make sure his teenage parents-to-be meet and fall in love to get back to the future.</p>
-            <button>More Info</button>
-        </div>
+    <h1>Movie Theater Billboard</h1>
+
+    <div class="controls">
+        <input type="text" id="searchInput" placeholder="Search by title...">
+        <select id="genreFilter">
+            <option value="">All Genres</option>
+            <option value="Action">Action</option>
+            <option value="Comedy">Comedy</option>
+            <option value="Drama">Drama</option>
+        </select>
+        <input type="number" id="priceFilter" placeholder="Max price">
+        <input type="time" id="timeFilter">
+        <button onclick="applyFilters()">Apply Filters</button>
     </div>
+
+    <div id="movie-container" class="movie-container"></div>
+    
+    <script src="service.js"></script>
+    <script src="ui.js"></script>
+    <script>
+        getmovies().then(displayMovies);
+    </script>
 </body>
 </html>
