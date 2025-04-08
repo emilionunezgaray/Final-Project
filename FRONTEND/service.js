@@ -1,6 +1,6 @@
 async function getMovies() {
     try {
-        const response = await fetch("http://localhost:5024");
+        const response = await fetch(" http://localhost:5500");
         const movies = await response.json();
         return movies;
     } catch (error) {
