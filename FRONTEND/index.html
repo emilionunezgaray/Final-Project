@@ -23,11 +23,37 @@
     </div>
 
     <div id="movie-container" class="movie-container"></div>
-    
-    <script src="service.js"></script>
-    <script src="ui.js"></script>
-    <script>
-        getmovies().then(displayMovies);
-    </script>
+
+    <div id="movie-form-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeForm()">&times;</span>
+            <h2 id="form-title">add new movie</h2>
+            <form id="movie-form">
+                <input type="hidden" id="movieId">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+
+                <label for="genre">Genre:</label>
+                <select id="genre" name="genre" required>
+                    <option value="Action">Action</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Drama">Drama</option>
+                </select>
+
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" required>
+
+                <label for="time">Time:</label>
+                <input type="time" id="time" name="time" required>
+
+                <label for="imageUrl">Image URL:</label>
+                <input type="url" id="imageUrl" name="imageUrl" required>
+
+                <button type="submit">Save Movie</button>
+            </form>
+        </div>
+    </div>
+    <button class="add-movie-btn" onclick="openForm()">Add Movie</button>
+    <script src="ui.js" type="module"></script>
 </body>
 </html>
