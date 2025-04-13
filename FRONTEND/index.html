@@ -1,59 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Theater Billboard</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie Theater Billboard</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1>Movie Theater Billboard</h1>
+  <h1>Movie Theater Billboard</h1>
 
-    <div class="controls">
-        <input type="text" id="searchInput" placeholder="Search by title...">
-        <select id="genreFilter">
-            <option value="">All Genres</option>
-            <option value="Action">Action</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Drama">Drama</option>
-        </select>
-        <input type="number" id="priceFilter" placeholder="Max price">
-        <input type="time" id="timeFilter">
-        <button onclick="applyFilters()">Apply Filters</button>
+  <div class="controls">
+    <input type="text" id="searchInput" placeholder="Search by title..." />
+    <select id="genreFilter">
+      <option value="">All Genres</option>
+      <option value="Action">Action</option>
+      <option value="Comedy">Comedy</option>
+      <option value="Drama">Drama</option>
+      <option value="Science Fiction">Science Fiction</option>
+    </select>
+    <input type="number" id="priceFilter" placeholder="Max price" />
+    <input type="time" id="timeFilter" />
+    <button id="applyFiltersBtn">Apply Filters</button>
+  </div>
+
+  <div id="movie-container" class="movie-container"></div>
+
+  <!-- Booking Modal -->
+  <div id="bookingModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" id="closeModal">&times;</span>
+      <h2 id="bookingTitle">Book Seats</h2>
+      <div class="seat-map" id="seatMap"></div>
+      <p id="selectedSeats">Selected Seats: None</p>
+      <p id="totalPrice">Total Price: $0</p>
+      <button id="confirmBookingBtn">Confirm Booking</button>
     </div>
+  </div>
 
-    <div id="movie-container" class="movie-container"></div>
-
-    <div id="movie-form-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeForm()">&times;</span>
-            <h2 id="form-title">add new movie</h2>
-            <form id="movie-form">
-                <input type="hidden" id="movieId">
-                <label for="title">Title:</label>
-                <input type="text" id="title" name="title" required>
-
-                <label for="genre">Genre:</label>
-                <select id="genre" name="genre" required>
-                    <option value="Action">Action</option>
-                    <option value="Comedy">Comedy</option>
-                    <option value="Drama">Drama</option>
-                </select>
-
-                <label for="price">Price:</label>
-                <input type="number" id="price" name="price" required>
-
-                <label for="time">Time:</label>
-                <input type="time" id="time" name="time" required>
-
-                <label for="imageUrl">Image URL:</label>
-                <input type="url" id="imageUrl" name="imageUrl" required>
-
-                <button type="submit">Save Movie</button>
-            </form>
-        </div>
-    </div>
-    <button class="add-movie-btn" onclick="openForm()">Add Movie</button>
-    <script src="ui.js" type="module"></script>
+  <script type="module" src="ui.js"></script>
 </body>
 </html>
