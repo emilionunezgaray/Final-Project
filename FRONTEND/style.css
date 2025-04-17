@@ -57,12 +57,12 @@ h1 {
     border-radius: 4px;
     cursor: pointer;
 }
-  
+
 .book-button:hover {
     background-color: #218838;
 }
-  
-  /* Modal Styles */
+
+/*Modal Styling*/
 .modal {
     display: none;
     position: fixed;
@@ -74,7 +74,7 @@ h1 {
     overflow: auto;
     background-color: rgba(0,0,0,0.5);
 }
-  
+
 .modal-content {
     background-color: #fff;
     margin: 5% auto;
@@ -85,7 +85,7 @@ h1 {
     border-radius: 8px;
     position: relative;
 }
-  
+
 .close-button {
     color: #aaa;
     float: right;
@@ -93,20 +93,20 @@ h1 {
     font-weight: bold;
     cursor: pointer;
 }
-  
+
 .close-button:hover,
 .close-button:focus {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
-  
+
 .seat-map {
     display: grid;
     grid-template-columns: repeat(8, 1fr);
     gap: 10px;
     margin: 20px 0;
 }
-  
+
 .seat {
     width: 30px;
     height: 30px;
@@ -114,13 +114,44 @@ h1 {
     border-radius: 5px;
     cursor: pointer;
 }
-  
+
 .seat.selected {
     background-color: #6c6;
 }
-  
+
 .seat.booked {
     background-color: #f66;
     cursor: not-allowed;
 }
+
+/*mobile responsivenes*/
+@media (max-width: 600px) {
+    .movie-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+    .seat {
+        width: 30px;
+        height: 30px;
+    }
+
+    #movie-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filter-section {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    
+      .filter-section input,
+      .filter-section select,
+      .filter-section button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+}
+  
+
   
