@@ -2,7 +2,7 @@ using System;
 
 namespace MovieTheaterBillboardApi.Models;
 
-/// here is the part where I decided to put the comments and documentation (as it was stated in my readme file proposal)
+/// here is the part where I decided to put the comments and documentation (as it was stated in my readme.me file proposal)
 /// this is to describe the purpose and usage of classes and their members.
 /// <summary>
 /// Represents a movie with its details
