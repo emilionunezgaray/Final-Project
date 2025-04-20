@@ -1,4 +1,4 @@
-import {getMovies} from "./service.js";
+import {getMovies, saveBooking} from "./service.js";
 
 const container = document.getElementById("movie-container");
 const genreInput = document.getElementById("genreFilter");
