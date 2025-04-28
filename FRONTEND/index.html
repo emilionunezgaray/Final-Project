@@ -7,23 +7,37 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Movie Theater Billboard</h1>
+  <header>
+    <h1>Movie Theater Billboard</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div class="controls">
-    <input type="text" id="searchInput" placeholder="Search by title..." />
-    <select id="genreFilter">
-      <option value="">All Genres</option>
-      <option value="Action">Action</option>
-      <option value="Comedy">Comedy</option>
-      <option value="Drama">Drama</option>
-      <option value="Science Fiction">Science Fiction</option>
-    </select>
-    <input type="number" id="priceFilter" placeholder="Max price" />
-    <input type="time" id="timeFilter" />
-    <button id="applyFiltersBtn">Apply Filters</button>
-  </div>
+  <aside>
+    <form class="controls" id="filtersForm">
+      <input type="text" id="searchInput" placeholder="Search by title..." />
+      <select id="genreFilter">
+        <option value="">All Genres</option>
+        <option value="Action">Action</option>
+        <option value="Comedy">Comedy</option>
+        <option value="Drama">Drama</option>
+        <option value="Science Fiction">Science Fiction</option>
+      </select>
+      <input type="number" id="priceFilter" placeholder="Max price" />
+      <input type="time" id="timeFilter"/>
+      <button type="sumbit" id="applyFiltersBtn">Apply Filters</button>
+      <button type="reset" id="resetFiltersBtn">Reset Filters</button>
+    </form>
+  </aside>
 
-  <div id="movie-container" class="movie-container"></div>
+  <section id="movies">
+    <ul id="movie-container" class="movie-container"></ul>
+  </section>
 
   <!-- Booking Modal -->
   <div id="bookingModal" class="modal">
@@ -38,5 +52,22 @@
   </div>
 
   <script type="module" src="ui.js"></script>
+ 
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="movies.html">Movies</a></li>
+          <li><a href="bookings.html">Bookings</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Movie Theater.</p>
+    </div>
+  </footer> 
 </body>
 </html>

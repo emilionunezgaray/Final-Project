@@ -1,14 +1,61 @@
+:root {
+    --primary-color: #28a745;
+    --primary-hover: #218838;
+    --background-color: #f9f9f9;
+    --card-background: #ffffff;
+    --accent-color: #6c6;
+    --error-color: #f66;
+    --text-color: #333;
+    --border-color: #ddd;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: #f9f9f9;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
-  
+
+body, h1, ul {
+    margin: 0;
+    padding: 0;
+}
 h1 {
     text-align: center;
     margin-bottom: 20px;
 }
-  
+
+/*Header styling*/
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+}
+
+/*Navigation stylinng*/
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: #444;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    display: block;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+}
+
 .controls {
     display: flex;
     flex-wrap: wrap;
@@ -22,6 +69,8 @@ h1 {
 .controls button {
     padding: 8px;
     font-size: 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
 }
   
 .movie-container {
@@ -33,14 +82,20 @@ h1 {
   
 .movie-card {
     width: 200px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--border-color);
     border-radius: 8px;
     padding: 10px;
     text-align: center;
     box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-    background-color: white;
+    background-color: var(--card-background);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-  
+
+.movie-card:hover {
+    transform: scale(1.03);
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.3);
+}
+
 .movie-card img {
     width: 100%;
     height: auto;
@@ -51,15 +106,16 @@ h1 {
 .book-button {
     margin-top: 10px;
     padding: 8px 12px;
-    background-color: #28a745;
+    background-color: var(--primary-color);
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .book-button:hover {
-    background-color: #218838;
+    background-color: var(--primary-hover);
 }
 
 /*Modal Styling*/
@@ -76,7 +132,7 @@ h1 {
 }
 
 .modal-content {
-    background-color: #fff;
+    background-color: var(--card-background);
     margin: 5% auto;
     padding: 20px;
     border: 1px solid #888;
@@ -92,6 +148,7 @@ h1 {
     font-size: 28px;
     font-weight: bold;
     cursor: pointer;
+    transition: color 0.3s;
 }
 
 .close-button:hover,
@@ -113,15 +170,21 @@ h1 {
     background-color: #ccc;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 .seat.selected {
-    background-color: #6c6;
+    background-color: var(--accent-color);
 }
 
 .seat.booked {
-    background-color: #f66;
+    background-color: var(--error-color);
     cursor: not-allowed;
+}
+
+/*nth-child styling for seats*/
+.seat:nth-child(even) {
+    background-color: #ddd;
 }
 
 /*mobile responsivenes*/
@@ -135,22 +198,74 @@ h1 {
         height: 30px;
     }
 
-    #movie-container {
+    .movie-container {
         flex-direction: column;
         align-items: center;
     }
-
-    .filter-section {
+    .controls {
         flex-direction: column;
         align-items: stretch;
-      }
-    
-      .filter-section input,
-      .filter-section select,
-      .filter-section button {
-        width: 100%;
-        margin-bottom: 10px;
-      }
+    }
+    .controls input,
+    .controls select,
+    .controls button {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+}
+
+/* Footer Styles */
+.site-footer {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 40px 20px 20px;
+    font-size: 16px;
+}
+  
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+  
+.footer-section {
+    flex: 1 1 300px;
+    margin: 10px;
+}
+  
+.footer-section h4 {
+    margin-bottom: 15px;
+    font-size: 18px;
+    color: #ffffff;
+}
+  
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+  
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+  
+.footer-section ul li a {
+    color: #bdc3c7;
+    text-decoration: none;
+    transition: color 0.3s;
+}  
+.footer-section ul li a:hover {
+    color: #ffffff;
+}
+  
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #7f8c8d;
+    margin-top: 20px;
+    font-size: 14px;
+    color: #bdc3c7;
 }
   
 

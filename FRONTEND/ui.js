@@ -27,12 +27,14 @@ function createMovieCard(movie) {
   const card = document.createElement("div");
   card.classList.add("movie-card");
 
+  const figure = document.createElement("figure");
   const img = document.createElement("img");
   img.src = movie.imageUrl;
   img.alt = movie.title;
-  
-  const title = document.createElement("h3");
-  title.textContent = movie.title;
+  const caption = document.createElement("figcaption");
+  caption.textContent = movie.title;
+  figure.appendChild(img);
+  figure.appendChild(caption);
   
   const genre = document.createElement("p");
   genre.textContent = `Genre: ${movie.genre}`;
@@ -48,8 +50,7 @@ function createMovieCard(movie) {
   bookBtn.classList.add("book-button");
   bookBtn.addEventListener("click", () => openBookingModal(movie));
   
-  card.appendChild(img);
-  card.appendChild(title);
+  card.appendChild(figure);
   card.appendChild(genre);
   card.appendChild(price);
   card.appendChild(time);
@@ -142,11 +143,15 @@ confirmBookingBtn.addEventListener('click', () => {
   closeBookingModal();
 });
 
-// Applies filters with debounce to optimize performance
-let debounceTimer;
-applyFiltersBtn.addEventListener('click', () => {
-  clearTimeout(debounceTimer);
-  debounceTimer = setTimeout(loadMovies, 300);
+// Handles form submission for applying filters
+filtersForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  loadMovies();
+});
+
+// Handles form reset to reload movies
+filtersForm.addEventListener("reset", () => {
+  loadMovies();
 });
 
 // Loads movies and applies filters
@@ -179,3 +184,6 @@ function applyFilters(movies) {
 }
 
 loadMovies();
+
+
+
