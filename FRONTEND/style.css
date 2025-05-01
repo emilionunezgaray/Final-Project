@@ -267,6 +267,32 @@ nav ul li a:hover {
     font-size: 14px;
     color: #bdc3c7;
 }
+
+/*Favorites styling*/
+#favorites-section {
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 2px solid #ccc
+}
+
+.drop-zone {
+    border: 2px dashed #aaa;
+    padding: 20px;
+    min-height: 150px;
+    background-color: #f9f9f9;
+    transition: var(--background-color) 0.3s;
+}
+
+.drop-zone.drag-over {
+    background-color: #e0f7fa;
+}
+
+.drop-zone p {
+    text-align: center;
+    color: #666;
+}
   
 
-  
+.sortable-ghost {
+    opacity: 0.4;
+  }  

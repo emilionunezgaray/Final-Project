@@ -55,10 +55,9 @@ All this is a way of also demonstrating my own enjoyment of film and a great web
 
 ## **"Hard Things" Evaluation**
 I will include the following for "Hard Things" points:
-- **C# API Integration** (10)
-- **Form validation with errors** (5)
-- **Local Storage** (5)
-- **Responsive Design** (5)
+- **Back-end api(write your own in C#)** (15)
+- **Host your html/css/javascript site on Github pages** (5)
+- **Use a 3rd party javascript library** (5)
 
 Backup plan:
 - Add movie ratings and reviews. (5)

@@ -15,9 +15,10 @@ const totalPriceDisplay = document.getElementById("totalPrice");
 const confirmBookingBtn = document.getElementById("confirmBookingBtn");
 const bookingTitle = document.getElementById("bookingTitle");
 
+const favoritesContainer = document.getElementById("favorites");
+
 let selectedSeats = [];
 let currentMovie = null;
-
 
 /**
  * Creates and appends a movie card to the container
@@ -26,6 +27,8 @@ let currentMovie = null;
 function createMovieCard(movie) {
   const card = document.createElement("div");
   card.classList.add("movie-card");
+  card.setAttribute("draggable", "true");
+  card.dataset.movieId = movie.id;
 
   const figure = document.createElement("figure");
   const img = document.createElement("img");
@@ -56,7 +59,65 @@ function createMovieCard(movie) {
   card.appendChild(time);
   card.appendChild(bookBtn);
   
+  //container.appendChild(card);
+
+  card.addEventListener("dragstart", (event) => {
+    event.dataTransfer.setData("text/plain", JSON.stringify(movie));
+  });
+
   container.appendChild(card);
+
+  favoritesContainer.addEventListener("dragover", (event) => {
+    event.preventDefault();
+    favoritesContainer.classList.add("drag-over");
+  });
+
+  favoritesContainer.addEventListener("dragleave", () => {
+    favoritesContainer.classList.remove("drag-over");
+  });
+
+  favoritesContainer.addEventListener("drop", (event) => {
+    event.preventDefault();
+    favoritesContainer.classList.remove("drag-over");
+
+    const movieData = event.dataTransfer.getData("text/plain");
+    if (movieData) {
+      const movie = JSON.parse(movieData);
+      addMovieToFavorites(movie);
+    }
+  });
+}
+
+function addMovieToFavorites(movie) {
+  if(document.querySelector(`#favorites .movie-card[data-movie-id="${movie.id}"]`)) {
+    return;
+  }
+
+  const card = document.createElement("div");
+  card.classList.add("movie-card");
+  card.dataset.movieId = movie.id;
+
+  const figure = document.createElement("figure");
+  const img = document.createElement("img");
+  img.src = movie.imageUrl;
+  img.alt = movie.title;
+  const caption = document.createElement("figcaption");
+  caption.textContent = movie.title;
+  figure.appendChild(img);
+  figure.appendChild(caption);
+
+  card.appendChild(figure);
+  favoritesContainer.appendChild(card);
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const favoritesContainer = document.getElementById('favorites');
+    if (favoritesContainer) {
+      new Sortable(favoritesContainer, {
+        animation: 150,
+        ghostClass: 'sortable-ghost'
+      });
+    }
+  });
 }
 
 /**

@@ -13,7 +13,7 @@ List<Movie> movies = new List<Movie>
     new Movie {Id = 3, Title = "Gladiator", Genre = "Action", Price = 6, Time = "20:00", ImageUrl = "https://tse1.mm.bing.net/th?id=OIP.95KrTnCWvpjs7Rfv7VGkHQHaLH&pid=Api&P=0&h=220"}
 };
 
-// Only GET endpoint for frontend usage
+// Get endpoint
 app.MapGet("/movies", () => movies);
 
 app.Run();
